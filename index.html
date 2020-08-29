@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(X) Quiz</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron" id="starter">
+      <h1 class="display-4">Welcome! </h1>
+
+      <p class="lead">This is a simple quiz on something!</p>
+
+      <hr class="my-4">
+
+      <p>This is a timed quiz- you'll have some minutes to answer some questions. Get one wrong, and lose some seconds.
+        Good luck! 
+      </p>
+      <button id=Start>Begin Quiz</button>
+
+    </div>
+ 
+    <div class="jumbotron border" id="quizDiv">
+      <h2 class="display-4"></h2>
+      <div class="row pb-5">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-2">
+          <h3 class="Timer " style="width: 200px"><span id="minutes">00</span> <span id="seconds">00 </span></h3>
+        </div>
+        <div class="col-md-2" id=scorekeeper>0/100 pts</div>
+      </div>
+      <div id=Q1>
+      <p class="lead"> Question 1: How many licks does it take to get to the center of a tootsie pop?</p>
+
+      <hr class="my-4">
+      <a id="opt1"> Between 50-100 licks </a>
+      <hr>
+      <a id="opt2"> Between 101-200 licks </a>
+      <hr>
+      <a> Between 201-300 licks </a>
+      <hr>
+      <a> None of the above </a>
+      <hr>
+      </div>
+
+      <button id=Next> Next Question</button>
+      <button id=Pause>Pause Quiz</button>
+
+      <hr>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

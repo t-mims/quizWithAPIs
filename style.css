@@ -1,0 +1,22 @@
+/* modifications to bootstrap elements for preferential styling */
+body {
+    background-color: rgb(146, 238, 207);
+}
+.container {
+
+    padding-top: 100px;
+    /* background-color: rgb(252, 243, 169); */
+}
+#quizContent{
+    align-items: center;
+    display: none; 
+}
+
+.border {
+    border-width: 15px;
+    border-color: rgb(78, 90, 92);
+
+}
+#quizDiv{
+    display: none;
+}
