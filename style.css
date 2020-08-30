@@ -1,17 +1,17 @@
 /* modifications to bootstrap elements for preferential styling */
 body {
     background-color: rgb(146, 238, 207);
+    font-family: 'Antic Slab', serif;
+    font-size: larger;
 }
 .container {
 
     padding-top: 100px;
-    /* background-color: rgb(252, 243, 169); */
 }
 
 
-.border {
-    border-width: 15px;
-    border-color: rgb(78, 90, 92);
+.questionSec {
+    font-family: 'Itim', cursive;
 
 }
  #quizDiv{
@@ -36,4 +36,12 @@ body {
     display: none;
 }
 
+a{
+    color: #444444;
 
+}
+#scoreboard{
+    background-color: aliceblue;
+    border-style: dotted;
+    border-color: blanchedalmond;
+}

@@ -1,25 +1,10 @@
 
-// generatre start button && addEventList(click)
-
-// Click initialzes Timer function >setInterval(func, 1000ms/secs)
-
-// function that with toggle the display of modal with selet/click action on the modal
-
-// conditionals for the answers (if opt C is selected, score ++)
-
-// conditonal else that subtracts from Totalseconds
-
-// maybe modals are in an array with data indices; if the array reaches the end, totalSeconds ===0
-
-// locally store scores & name/user ID after time reaches 0, in an ordered list that's appeneded, maybe as an obj. 
-
-// Clear or reset button?
-
+//Sets up inital timer
 let minutesLeft = document.getElementById("minutes");
 let secondsLeft = document.getElementById("seconds");
-let totalSeconds = 10 * 60;
+let totalSeconds = 5 * 60;
 
-
+//Catching all quiz questions and storing in an array
 let q1 = document.getElementById("Q1");
 
 let q2 = document.getElementById("Q2");
@@ -34,26 +19,39 @@ let q6 = document.getElementById("Q6");
 
 let questionList = [q1, q2, q3, q4, q5, q6]
 
-let score = document.getElementById("score");
 
+//setting up score & scoreboard 
+let score = document.getElementById("scorekeeper");
+let answerType = document.getElementsByTagName("a")
 let userName = document.getElementById("userName");
 
+//starts the quiz timer
+function startTimer() {
+
+    if (totalSeconds > 0) {
+        interval = setInterval(function () {
+            totalSeconds--;
+            minutesLeft.textContent = Math.floor(totalSeconds / 60) + " :";
+            seconds = totalSeconds % 60
+            if (seconds < 10) {
+                secondsLeft.textContent = "0" + seconds
+            }
+            else {
+                secondsLeft.textContent = seconds
+            }
 
 
-function newQuestion() {
+        }, 1000)
+        if (totalSeconds === 0) {
+            minutesLeft.textContent = "00"
+            secondsLeft.textContent = "00"
+            endQuiz()
+        }
 
-    for (var i = 1; i < questionList.length; i++) {
-        questionList[0].style.display="none"
-        questionList[i].style.display = "block"
-        scoreKeeper()
     }
 
-
-
 }
-
-
-
+//hides the initial jumbotron, begins with first question, and calls startTimer
 function startQuiz() {
 
     document.getElementById("starter").style.display = "none";
@@ -65,58 +63,42 @@ function startQuiz() {
     startTimer()
 
 }
+//will toggle display of each question and call scoreKeeper to evalulate if correct or incorrect
+function newQuestion() {
 
-function startTimer() {
+    for (var i = 1; i < questionList.length; i++) {
+        questionList[0].style.display = "none"
+        questionList[i].style.display = "block"
+        scoreKeeper()
 
-    if (totalSeconds > 0) {
-        interval = setInterval(function () {
-            totalSeconds--;
-            minutesLeft.textContent = Math.floor(totalSeconds / 60);
-            seconds = totalSeconds % 60
-            if (seconds < 10) {
-                secondsLeft.textContent = "0" + seconds
-            }
-            else {
-                secondsLeft.textContent = seconds
-            }
-
-        }, 1000)
     }
 }
 
 
+//modifies total score based on correct or incorrect response
 function scoreKeeper() {
 
-    let scoreTotal = 0
-
-    if (document. getElementById('correct'). clicked == true) {
-
-        scoreTotal++
+    let scoreTotal = 6 / 6
+    if (answerType.classList.contains("correct") == true) {
 
         return scoreTotal
-
     }
-
     else {
-
         ReduceTime()
-
         if (scoreTotal > 0) {
-
-            scoreTotal--
+            scoreTotal = Math.floor((scoreTotal - 1) / 6)
 
             return scoreTotal
-
         }
-
+        if (scoreTotal = 0) {
+            endQuiz()
+        }
     }
-
-
-    score.textContent = scoreTotal
+    score.textContent = scoreTotal + "%"
 
 }
 
-
+//triggered by incorrect response, will reduce overall time (totalseconds) by 30 secs
 function ReduceTime() {
 
 
@@ -126,10 +108,17 @@ function ReduceTime() {
 
 }
 
-
-function pauseQuiz() {
-
-    doessomething.something
+function saveScore(){
+    userName= prompt("Save score with initals:")
+    User={
+        userName,
+        scoreTotal
+    }
+    document.getElementById("scoreboard").append(User)
+}
+function endQuiz() {
+    questionList[5].style.display = "none";
+    saveScore()
 
 }
 
@@ -138,4 +127,4 @@ document.getElementById("Start").addEventListener("click", startQuiz)
 
 document.getElementById("Next").addEventListener("click", newQuestion)
 
-document.getElementById("Pause").addEventListener("click", pauseQuiz)
+document.getElementById("Save").addEventListener("click",saveScore())
