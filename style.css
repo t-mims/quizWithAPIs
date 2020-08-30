@@ -7,16 +7,33 @@ body {
     padding-top: 100px;
     /* background-color: rgb(252, 243, 169); */
 }
-#quizContent{
-    align-items: center;
-    display: none; 
-}
+
 
 .border {
     border-width: 15px;
     border-color: rgb(78, 90, 92);
 
 }
-#quizDiv{
+ #quizDiv{
+    display: none;
+} 
+#Q1{
     display: none;
 }
+#Q2{
+    display: none;
+}
+#Q3{
+    display: none;
+}
+#Q4{
+    display: none;
+}
+#Q5{
+    display: none;
+}
+#Q6{
+    display: none;
+}
+
+
